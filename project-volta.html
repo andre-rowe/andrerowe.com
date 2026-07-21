@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Volta — Andre Rowe</title>
+  <meta name="description" content="Case study: an AI-driven battery-grid simulation — a TensorFlow DQN reinforcement-learning agent and scikit-learn demand forecasting, built as a custom Python simulation.">
+  <link rel="canonical" href="https://andrerowe.com/project-volta.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Project Volta — AI-driven battery-grid simulation">
+  <meta property="og:description" content="A reinforcement-learning DQN agent dispatching a simulated home-battery fleet as a virtual power plant. 30% simulated cut in peak grid draw.">
+  <meta property="og:image" content="https://andrerowe.com/images/volta-hero.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="wrap">
+
+  <a class="crumb" href="index.html">← andre rowe / all work</a>
+
+  <header class="hero hero-p">
+    <p class="statusline"><span class="dot dot-green" aria-hidden="true"></span>case study — academic project</p>
+    <h1>Project Volta</h1>
+    <p class="role">AI-driven battery-grid simulation · Academic project · 2025</p>
+    <p class="thesis">Home batteries, modeled as a coordinated virtual power plant — dispatched by a reinforcement-learning agent inside a custom Python simulation.</p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Solo build — simulation &amp; reinforcement learning</dd></div>
+      <div><dt>Stack</dt><dd>Python · TensorFlow (DQN) · scikit-learn · pandas · NumPy · Matplotlib · Jupyter</dd></div>
+      <div><dt>Status</dt><dd>Academic prototype (simulation)</dd></div>
+    </dl>
+  </header>
+
+  <div class="rail">
+
+    <section class="section" aria-labelledby="pv-problem">
+      <h2 class="eyebrow" id="pv-problem">the problem</h2>
+      <p class="prose">Rising rooftop solar and EV charging strain local distribution grids, and unsynchronized home batteries leave stored capacity idle exactly when it's needed most. The premise behind Volta: coordinate a fleet of home batteries as a single virtual power plant that learns to discharge into demand peaks and recharge during troughs — smoothing the load the grid actually sees.</p>
+    </section>
+
+    <section class="section" aria-labelledby="pv-build">
+      <h2 class="eyebrow" id="pv-build">what i built</h2>
+      <ul class="plist">
+        <li><strong>Simulation environment</strong> — a custom Gym-style battery environment (<code>battery_env.py</code>) modeling state-of-charge, household demand, and net grid draw across a 24-hour cycle</li>
+        <li><strong>Reinforcement-learning agent</strong> — a TensorFlow Deep Q-Network (<code>train_dqn</code>) that learns charge/discharge timing to shave peak draw, trained against the environment's reward signal</li>
+        <li><strong>Demand forecasting</strong> — a scikit-learn model predicting next-hour grid demand (<code>volta_forecast</code>) to inform the agent's decisions</li>
+        <li><strong>Synthetic telemetry</strong> — a data generator producing simulated solar, demand, and battery streams (<code>volta_data.py</code> → <code>volta_simulated_data.csv</code>)</li>
+        <li><strong>Analysis &amp; visualization</strong> — Matplotlib notebooks charting training reward and with-agent vs. without-agent outcomes (<code>volta_visualization</code>)</li>
+      </ul>
+      <figure class="shot">
+        <img src="images/volta-hero.webp" alt="Project Volta system visual" loading="lazy">
+        <figcaption>fig 01 — system overview</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/volta-training-curve.webp" alt="DQN agent reward per training episode, trending upward" loading="lazy">
+        <figcaption>fig 02 — DQN total reward per episode during training (higher is better)</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" aria-labelledby="pv-results">
+      <h2 class="eyebrow" id="pv-results">simulated results</h2>
+      <div class="nums">
+        <div class="num"><b>−30%</b><span>peak grid draw</span></div>
+        <div class="num"><b>+92%</b><span>precharge detection</span></div>
+        <div class="num"><b>+18%</b><span>battery utilization</span></div>
+        <div class="num"><b>−25%</b><span>energy waste</span></div>
+      </div>
+      <figure class="shot">
+        <img src="images/volta-impact.webp" alt="Comparison of grid performance with and without the AI agent" loading="lazy">
+        <figcaption>fig 03 — with-agent vs. without-agent comparison across the simulation</figcaption>
+      </figure>
+      <p class="prose" style="margin-top:1rem;">The trained agent manages a full day of energy behavior across 96 fifteen-minute intervals. Every figure here is measured <strong>in simulation</strong> against a no-control baseline — not on production hardware.</p>
+    </section>
+
+    <section class="section" aria-labelledby="pv-scope">
+      <h2 class="eyebrow" id="pv-scope">the production path — designed, not built</h2>
+      <p class="prose" style="margin-bottom:1.2rem;">The simulation is the proof of concept. The deployment architecture was designed but deliberately left out of scope for an academic build — and I'm calling that out rather than implying it shipped:</p>
+      <div class="note-planned">
+        <span class="tag">planned · not in the repo</span>
+        <p>Terraform-provisioned AWS — IoT Core for device streams, Lambda for the control loop — with Grafana + InfluxDB for live telemetry and edge coordination across many homes. The repository contains the simulation, models, and analysis; it does not contain the cloud stack. That boundary is intentional.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pv-notes">
+      <h2 class="eyebrow" id="pv-notes">engineering notes</h2>
+      <ul class="plist">
+        <li>Modular <code>src/</code> layout separating the environment from the RL control logic</li>
+        <li>Data, trained-model artifacts, and analysis committed alongside the notebooks so results can be regenerated end to end</li>
+        <li>Reward shaping tuned so the agent prioritizes peak-shaving without over-cycling the battery</li>
+      </ul>
+    </section>
+
+    <nav class="pager" aria-label="More work">
+      <a class="prev" href="index.html">← all work</a>
+      <a class="next" href="bayou-alert.html">next · Bayou Alert →</a>
+    </nav>
+
+  </div>
+
+  <footer class="foot">
+    <p>static html/css · zero js</p>
+    <p>© 2026 Andre Rowe</p>
+  </footer>
+
+</main>
+
+</body>
+</html>

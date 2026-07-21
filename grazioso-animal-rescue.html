@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grazioso Animal Rescue — Andre Rowe</title>
+  <meta name="description" content="Case study: a Python + MongoDB CRUD backend and Dash dashboard for filtering rescue animals by mission. SNHU CS-340.">
+  <link rel="canonical" href="https://andrerowe.com/grazioso-animal-rescue.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Grazioso Animal Rescue — rescue-operations dashboard">
+  <meta property="og:description" content="A PyMongo CRUD module and interactive Dash dashboard filtering 5,000+ shelter records by rescue mission. SNHU CS-340.">
+  <meta property="og:image" content="https://andrerowe.com/images/grazioso-dashboard-1.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="wrap">
+
+  <a class="crumb" href="index.html">← andre rowe / all work</a>
+
+  <header class="hero hero-p">
+    <p class="statusline"><span class="dot dot-green" aria-hidden="true"></span>case study — academic project</p>
+    <h1>Grazioso Animal Rescue</h1>
+    <p class="role">Rescue-operations dashboard · SNHU CS-340</p>
+    <p class="thesis">A rescue-animal organization needed field data it could act on in real time. I built the CRUD backend and the dashboard that surface it.</p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Backend Developer &amp; Data Engineer</dd></div>
+      <div><dt>Stack</dt><dd>Python · MongoDB · PyMongo · Dash · Plotly · Pandas</dd></div>
+      <div><dt>Missions</dt><dd>Water · Mountain · Disaster</dd></div>
+    </dl>
+  </header>
+
+  <div class="rail">
+
+    <section class="section" aria-labelledby="gr-problem">
+      <h2 class="eyebrow" id="gr-problem">the problem</h2>
+      <p class="prose">Grazioso Salvare — the course's fictional client — trains animals for emergency operations. The challenge wasn't collecting data; it was making it actionable in real time. Field staff needed to filter animals by rescue readiness, see deployment areas, and make data-backed calls fast, without hand-sifting a raw database.</p>
+    </section>
+
+    <section class="section" aria-labelledby="gr-build">
+      <h2 class="eyebrow" id="gr-build">what i built</h2>
+      <div class="cols-2">
+        <div>
+          <h4>MongoDB data layer</h4>
+          <ul class="plist">
+            <li>Schema and indexes designed for fast filtering by mission profile</li>
+            <li>Indexed queries for responsive field retrieval across the dataset</li>
+            <li>Structured to scale to the full shelter dataset without redesign</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Python CRUD module</h4>
+          <ul class="plist">
+            <li>A reusable PyMongo module wrapping all create / read / update / delete operations</li>
+            <li>Input validation and explicit error handling — no bad writes, no silent failures</li>
+            <li>Consumed by a Dash dashboard used as a clean data surface, not decoration</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="shot">
+        <img src="images/grazioso-dashboard-1.webp" alt="Grazioso dashboard: filterable animal records table" loading="lazy">
+        <figcaption>fig 01 — mission-based filtering across the shelter dataset</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/grazioso-dashboard-2.webp" alt="Grazioso dashboard: outcome charts and map view" loading="lazy">
+        <figcaption>fig 02 — outcome charts + geolocation mapping</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" aria-labelledby="gr-results">
+      <h2 class="eyebrow" id="gr-results">results</h2>
+      <div class="nums">
+        <div class="num"><b>5,000+</b><span>shelter records filtered</span></div>
+        <div class="num"><b>3</b><span>rescue-role filters</span></div>
+        <div class="num"><b>CRUD</b><span>full create · read · update · delete</span></div>
+        <div class="num"><b>−80%</b><span>manual record-sifting</span></div>
+      </div>
+      <p class="prose" style="margin-top:1.2rem;">A typical field query — water-rescue-suitable dogs under two years old (<code>{"age": {"$lt": 2}, "mission": "water"}</code>) — resolves to a filtered dashboard view with the map and charts updating together. Built against the course's Austin Animal Center dataset.</p>
+    </section>
+
+    <section class="section" aria-labelledby="gr-ops">
+      <h2 class="eyebrow" id="gr-ops">engineering notes</h2>
+      <ul class="plist">
+        <li>Resolved MongoDB <code>ObjectId</code> serialization for clean backend-to-frontend data transfer</li>
+        <li>Kept Dash lean — used purely as a data surface over the CRUD layer</li>
+        <li>Credentials isolated in a <code>.env</code> file, kept out of version control</li>
+      </ul>
+    </section>
+
+    <nav class="pager" aria-label="More work">
+      <a class="prev" href="bayou-alert.html">← Bayou Alert</a>
+      <a class="next" href="travlr-getaways.html">next · Travlr Getaways →</a>
+    </nav>
+
+  </div>
+
+  <footer class="foot">
+    <p>static html/css · zero js</p>
+    <p>© 2026 Andre Rowe</p>
+  </footer>
+
+</main>
+
+</body>
+</html>

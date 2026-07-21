@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travlr Getaways — Andre Rowe</title>
+  <meta name="description" content="Case study: a MEAN-stack travel platform — Express/Handlebars customer site, REST API, and a JWT-secured Angular admin SPA. SNHU CS-465.">
+  <link rel="canonical" href="https://andrerowe.com/travlr-getaways.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Travlr Getaways — full-stack MEAN travel platform">
+  <meta property="og:description" content="A static brochure site rebuilt as a database-driven MEAN app: REST API, Mongoose models, and a JWT-secured Angular admin SPA. SNHU CS-465.">
+  <meta property="og:image" content="https://andrerowe.com/images/travlr-architecture.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="wrap">
+
+  <a class="crumb" href="index.html">← andre rowe / all work</a>
+
+  <header class="hero hero-p">
+    <p class="statusline"><span class="dot dot-green" aria-hidden="true"></span>case study — academic project</p>
+    <h1>Travlr Getaways</h1>
+    <p class="role">Full-stack travel platform · MEAN stack · SNHU CS-465</p>
+    <p class="thesis">A brochure-style static site rebuilt as a database-driven web application — with a REST API, secure admin workflows, and a layered, scalable architecture.</p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Sole Full-Stack Developer</dd></div>
+      <div><dt>Stack</dt><dd>MongoDB · Express · Angular · Node.js · Mongoose · JWT · Handlebars</dd></div>
+      <div><dt>Scope</dt><dd>Academic project · 2025</dd></div>
+    </dl>
+  </header>
+
+  <div class="rail">
+
+    <section class="section" aria-labelledby="tr-problem">
+      <h2 class="eyebrow" id="tr-problem">the problem</h2>
+      <p class="prose">Travlr Getaways is a boutique travel brand that outgrew its original site: static HTML, no backend, no database, no admin. Every update meant editing markup by hand — no trip filtering, no interface to add or edit offerings, and no separation between internal and public views.</p>
+    </section>
+
+    <section class="section" aria-labelledby="tr-build">
+      <h2 class="eyebrow" id="tr-build">what i built</h2>
+      <ul class="plist">
+        <li><strong>RESTful API</strong> — Express endpoints for trip CRUD and authentication (<code>/api/trips</code>, <code>/api/login</code>, <code>/api/register</code>), backed by MongoDB</li>
+        <li><strong>Server-rendered customer site</strong> — Express + Handlebars (layouts &amp; partials) for public trip browsing</li>
+        <li><strong>JWT-secured Angular admin SPA</strong> — a separate single-page app for trip management, protected by an auth guard and token interceptor</li>
+        <li><strong>Schema design</strong> — Mongoose models with validation for trip and user data</li>
+        <li><strong>Responsive UI</strong> — device-agnostic layouts with dynamic trip loading</li>
+      </ul>
+      <figure class="shot">
+        <img src="images/travlr-architecture.webp" alt="Travlr system architecture: Handlebars customer site, Express REST API, Angular admin SPA, MongoDB" loading="lazy">
+        <figcaption>fig 01 — layered architecture: customer site &amp; admin SPA ↔ REST API ↔ MongoDB</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/travlr-app.webp" alt="Travlr public trip browsing interface" loading="lazy">
+        <figcaption>fig 02 — public traveler experience (server-rendered)</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/travlr-admin.webp" alt="Travlr Angular admin dashboard for trip management" loading="lazy">
+        <figcaption>fig 03 — JWT-secured Angular admin for non-technical staff</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" aria-labelledby="tr-ops">
+      <h2 class="eyebrow" id="tr-ops">beyond the code</h2>
+      <p class="prose">The design work came before the code: class, sequence, and architecture diagrams mapped the request/response lifecycle and the layered split between the customer site, the API, and the database. The harder problems were the migration from static HTML to a database-driven app, admin workflows intuitive enough for non-technical staff, and validation paired with secure, token-based access control.</p>
+    </section>
+
+    <nav class="pager" aria-label="More work">
+      <a class="prev" href="grazioso-animal-rescue.html">← Grazioso Salvare</a>
+      <a class="next" href="index.html">all work →</a>
+    </nav>
+
+  </div>
+
+  <footer class="foot">
+    <p>static html/css · zero js</p>
+    <p>© 2026 Andre Rowe</p>
+  </footer>
+
+</main>
+
+</body>
+</html>

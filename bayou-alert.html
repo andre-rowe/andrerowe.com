@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bayou Alert — Andre Rowe</title>
+  <meta name="description" content="Case study: a serverless flood-warning dashboard that ingests live USGS gauge data for Houston. Azure Functions, Cosmos DB, React, Mapbox.">
+  <link rel="canonical" href="https://andrerowe.com/bayou-alert.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bayou Alert — real-time flood-warning dashboard">
+  <meta property="og:description" content="A serverless dashboard aggregating live USGS gauge data into one operational picture for flood response. Academic project.">
+  <meta property="og:image" content="https://andrerowe.com/images/volta-hero.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="wrap">
+
+  <a class="crumb" href="index.html">← andre rowe / all work</a>
+
+  <header class="hero hero-p">
+    <p class="statusline"><span class="dot dot-green" aria-hidden="true"></span>case study — academic project</p>
+    <h1>Bayou Alert</h1>
+    <p class="role">Real-time flood-warning dashboard · Houston, TX · Academic project</p>
+    <p class="thesis">One dashboard that pulls scattered flood signals — gauge sensors and citizen reports — into a single operational picture for first responders.</p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Backend &amp; cloud architecture</dd></div>
+      <div><dt>Stack</dt><dd>Azure Functions (Python) · Cosmos DB · React · Mapbox · Tailwind</dd></div>
+      <div><dt>Scope</dt><dd>Academic project</dd></div>
+    </dl>
+  </header>
+
+  <div class="rail">
+
+    <section class="section" aria-labelledby="ba-problem">
+      <h2 class="eyebrow" id="ba-problem">the problem</h2>
+      <p class="prose">Houston carries some of the worst flood risk in the US. In a major flood, distress signals scatter across 911 calls, radio, social media, and government sensors — siloed and hard to synthesize exactly when responders can least afford it. A single real-time picture of where water is rising is the difference between fast and delayed dispatch. Bayou Alert is a concept for that picture, built around the region's live gauge network.</p>
+      <div class="nums" style="margin-top:1.4rem;">
+        <div class="num"><b>35k+</b><span>rescue requests in a catastrophic Houston flood</span></div>
+        <div class="num"><b>17</b><span>bayous that can hit major flood stage</span></div>
+        <div class="num"><b>1</b><span>unified operational view</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ba-build">
+      <h2 class="eyebrow" id="ba-build">what i built</h2>
+      <p class="prose">A serverless ingestion backend feeding a React dashboard, so responders can read live gauge conditions at a glance.</p>
+      <div class="cols-2" style="margin-top:1.4rem;">
+        <div>
+          <h4>Backend — Azure &amp; Python</h4>
+          <ul class="plist">
+            <li>Timer-triggered Azure Function polling USGS gauge data from Buffalo Bayou's network on a schedule</li>
+            <li>Cosmos DB as the store for alerts, readings, and citizen reports</li>
+            <li>REST endpoints serving live and historical alerts plus citizen-submitted reports</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Frontend — React + Mapbox</h4>
+          <ul class="plist">
+            <li>Responsive dashboard: live map, tables, and charts (Recharts)</li>
+            <li>Severity-graded markers across the bayou network</li>
+            <li>Dark/light theme for dispatch-center readability</li>
+            <li>Sensor and citizen reports aggregated into one view</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note-planned" style="margin-top:1.5rem;">
+        <span class="tag">in progress · planned</span>
+        <p>An NLP pipeline to triage urgent inbound SMS reports is designed but not yet complete — the current build focuses on the gauge-ingestion backend and the dashboard.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ba-ops">
+      <h2 class="eyebrow" id="ba-ops">the ops angle</h2>
+      <p class="prose">This is as much an operations problem as a software one: unattended, scheduled ingestion that can't silently fail; a serverless backend that scales with a crisis instead of buckling during one; and a data layer tuned for fast reads under load. The work spanned the architecture, the serverless backend and data model, and the React client.</p>
+    </section>
+
+    <nav class="pager" aria-label="More work">
+      <a class="prev" href="project-volta.html">← Project Volta</a>
+      <a class="next" href="grazioso-animal-rescue.html">next · Grazioso Salvare →</a>
+    </nav>
+
+  </div>
+
+  <footer class="foot">
+    <p>static html/css · zero js</p>
+    <p>© 2026 Andre Rowe</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
