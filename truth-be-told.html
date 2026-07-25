@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Truth Be Told · UX case study · Andre Rowe</title>
+  <meta name="description" content="UX research and civic design for a nonprofit empowering incarcerated women: volunteer onboarding redesigned, task success up from 30 to 50% baseline to 80 to 100% in final testing.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+
+<main class="wrap">
+
+  <a class="crumb" href="index.html">← andrerowe.com</a>
+
+  <header class="hero-p">
+    <p class="statusline"><span class="dot dot-green" aria-hidden="true"></span>ux case study · nonprofit client project · team of 5</p>
+    <h1>Truth Be Told: designing a more human volunteer experience</h1>
+    <p class="thesis">A nonprofit empowering incarcerated women through storytelling was losing willing volunteers to an unclear signup journey. We rebuilt the path from intent to involvement.</p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>UX researcher · civic designer</dd></div>
+      <div><dt>Team</dt><dd>5 designers, collaborating with TBT staff</dd></div>
+      <div><dt>Tools</dt><dd>Figma · Miro · Google Forms · UsabilityHub · Zoom</dd></div>
+      <div><dt>Outcome</dt><dd>Registration task success from 70% to 100% in final testing</dd></div>
+    </dl>
+  </header>
+
+  <nav class="chapters" aria-label="Chapters">
+    <a href="#challenge">challenge</a>
+    <a href="#research">research</a>
+    <a href="#persona">persona</a>
+    <a href="#ideate">ideation</a>
+    <a href="#testing">testing</a>
+    <a href="#outcome">outcome</a>
+  </nav>
+
+  <div class="rail">
+
+    <section class="section rv" id="challenge" aria-labelledby="challenge-h">
+      <h2 class="eyebrow" id="challenge-h">01 · the challenge</h2>
+      <p class="prose">Truth Be Told runs storytelling and community programs inside Texas prisons, and volunteers are how the mission gets delivered. But the digital experience made it hard for a potential volunteer to answer three basic questions: what would I actually do, how do I start, and do I belong here?</p>
+      <p class="pull">Every confused visitor was a <em>missed volunteer</em>, and every missed volunteer was missed impact for the women the program serves.</p>
+      <p class="prose">My role centered on research: mapping the existing onboarding flows, running interviews, synthesizing the pain points, and then collaborating on wireframes and prototypes with the team.</p>
+    </section>
+
+    <section class="section rv" id="research" aria-labelledby="research-h">
+      <h2 class="eyebrow" id="research-h">02 · research</h2>
+      <p class="prose">We interviewed and surveyed people who had recently gone through volunteer signup, while the experience was still fresh. Their words did most of the diagnostic work for us.</p>
+      <div class="vquotes" style="margin-top:1.4rem;">
+        <blockquote class="vquote">"The site seemed passionate about the mission, but I couldn't find anything that helped me understand what a real day of volunteering looked like."<footer>volunteer interview</footer></blockquote>
+        <blockquote class="vquote">"I filled out the form, but then I didn't hear back for a while. That made me second guess whether I had done it right or if I was even needed."<footer>volunteer interview</footer></blockquote>
+        <blockquote class="vquote">"I wanted to help, but I couldn't tell what the next step was supposed to be."<footer>volunteer interview</footer></blockquote>
+      </div>
+      <div class="cols-2" style="margin-top:1.8rem;">
+        <div>
+          <h4>Friction we kept hearing</h4>
+          <ul class="plist">
+            <li>No preview of what volunteering actually looks like</li>
+            <li>Silence after signup: no confirmation, no next step</li>
+            <li>Unclear who to contact with questions</li>
+            <li>No social proof from current volunteers</li>
+          </ul>
+        </div>
+        <div>
+          <h4>The underlying pattern</h4>
+          <ul class="plist">
+            <li>Motivation was high; clarity was low</li>
+            <li>Trust gaps, not intent gaps, were losing people</li>
+            <li>The fix was transparency, not persuasion</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rv" id="persona" aria-labelledby="persona-h">
+      <h2 class="eyebrow" id="persona-h">03 · persona &amp; journey</h2>
+      <p class="prose">The research condensed into Marcia Campbell: 30, a call center manager in Austin who volunteers across several organizations and prefers to sign up online. She has the skills, the time, and the heart. What she does not have is patience for a process that leaves her guessing.</p>
+      <figure class="shot">
+        <img src="images/tbt-persona.webp" alt="Persona sheet for Marcia Campbell, 30, call center manager in Austin: hobbies, behaviors, motivations, goals, and frustrations including unclear volunteer descriptions and laborious registration." width="1800" height="1012" loading="lazy">
+        <figcaption>the persona built from interview and survey data</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="images/tbt-journey.webp" alt="User journey map following Marcia from motivation through searching online, calling the organization, speaking to an admin, following the process, and finally volunteering, with emotional lows at the unclear early stages." width="1800" height="1012" loading="lazy">
+        <figcaption>her journey: the emotional dip lives exactly where the website fails to answer questions</figcaption>
+      </figure>
+      <p class="pull" style="margin-top:1.6rem;">How might we help people feel <em>confident joining</em>, build trust through clarity, and make the experience feel emotionally connected?</p>
+    </section>
+
+    <section class="section rv" id="ideate" aria-labelledby="ideate-h">
+      <h2 class="eyebrow" id="ideate-h">04 · ideation &amp; prototype</h2>
+      <p class="prose">We sketched against Marcia's friction points, moved to low fidelity wireframes focused on hierarchy and a visible path, then built an interactive prototype around three commitments.</p>
+      <div style="margin-top:1.4rem;">
+        <article class="card">
+          <div class="card-head"><h3>Show the path</h3><p class="tags">friction: unclear next steps</p></div>
+          <p>A step by step registration with progress indicators, confirmations, and guidance, so nobody wonders whether they did it right.</p>
+        </article>
+        <article class="card">
+          <div class="card-head"><h3>Preview the role</h3><p class="tags">friction: no idea what to expect</p></div>
+          <p>Role previews describing a real day of volunteering, so visitors can see themselves in the work before committing.</p>
+        </article>
+        <article class="card">
+          <div class="card-head"><h3>Prove the community</h3><p class="tags">friction: no social proof</p></div>
+          <p>Real volunteer stories, photos, and testimonials woven through the flow, turning warmth the organization already had into trust online.</p>
+        </article>
+      </div>
+      <figure class="shot">
+        <img src="images/tbt-sketches.webp" alt="Early pencil and marker interface sketches exploring layout and hierarchy for the volunteer onboarding flow." width="1800" height="1391" loading="lazy">
+        <figcaption>early sketches: layout clarity and an action oriented hierarchy before any pixels</figcaption>
+      </figure>
+    </section>
+
+    <section class="section rv" id="testing" aria-labelledby="testing-h">
+      <h2 class="eyebrow" id="testing-h">05 · testing</h2>
+      <p class="prose">We tested the high fidelity prototype with five new volunteers matching our research profiles, and measured the same tasks against the original site and our mid fidelity round.</p>
+      <table class="results" style="margin-top:1.2rem;">
+        <thead>
+          <tr><th>Task</th><th>Original site</th><th>Mid fidelity</th><th>Final prototype</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Register for a volunteer account</td>
+            <td><span class="bar"><i style="--w:70%;"></i></span><span class="pct">70%</span></td>
+            <td><span class="bar"><i style="--w:70%;"></i></span><span class="pct">70%</span></td>
+            <td><span class="bar good"><i style="--w:100%;"></i></span><span class="pct">100%</span></td>
+          </tr>
+          <tr>
+            <td>Find a role matching their interests</td>
+            <td><span class="bar"><i style="--w:40%;"></i></span><span class="pct">40%</span></td>
+            <td><span class="bar"><i style="--w:70%;"></i></span><span class="pct">70%</span></td>
+            <td><span class="bar good"><i style="--w:90%;"></i></span><span class="pct">90%</span></td>
+          </tr>
+          <tr>
+            <td>Complete the onboarding steps</td>
+            <td><span class="bar"><i style="--w:50%;"></i></span><span class="pct">50%</span></td>
+            <td><span class="bar"><i style="--w:70%;"></i></span><span class="pct">70%</span></td>
+            <td><span class="bar good"><i style="--w:90%;"></i></span><span class="pct">90%</span></td>
+          </tr>
+          <tr>
+            <td>Connect with other volunteers</td>
+            <td><span class="bar"><i style="--w:30%;"></i></span><span class="pct">30%</span></td>
+            <td><span class="bar good"><i style="--w:90%;"></i></span><span class="pct">90%</span></td>
+            <td><span class="bar good"><i style="--w:80%;"></i></span><span class="pct">80%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="cols-2" style="margin-top:1.8rem;">
+        <div>
+          <h4>What landed</h4>
+          <ul class="plist">
+            <li>Step by step registration felt less overwhelming</li>
+            <li>Real photos and testimonials read as authentic community</li>
+            <li>Testers called it friendly, clear, and action oriented</li>
+          </ul>
+        </div>
+        <div>
+          <h4>What we would push next</h4>
+          <ul class="plist">
+            <li>Instant feedback after each registration step</li>
+            <li>More in flow tips and next step reminders</li>
+            <li>Event invitations matched to volunteer skills</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rv" id="outcome" aria-labelledby="outcome-h">
+      <h2 class="eyebrow" id="outcome-h">06 · outcome</h2>
+      <div class="nums">
+        <div class="num"><b>4/5</b><span>testers said they would sign up after using the prototype</span></div>
+        <div class="num"><b>100%</b><span>completed key flows without help</span></div>
+        <div class="num"><b>5</b><span>designers, one shared voice with the TBT community</span></div>
+      </div>
+      <p class="prose" style="margin-top:1.6rem;">The deeper outcome was tonal: the new experience finally sounded like the organization feels in person. Warm, honest, and specific about the work.</p>
+      <p class="prose">For me this project is why research matters in civic design. The volunteers were never unwilling. The interface just never told them they were wanted, and what to do about it.</p>
+    </section>
+
+  </div>
+
+  <nav class="pager" aria-label="More case studies">
+    <span><span class="muted">next study</span><br><a href="loql.html">Loql →</a></span>
+    <span class="next"><span class="muted">back to</span><br><a href="index.html">all work</a></span>
+  </nav>
+
+  <footer class="foot">
+    <p>team: diana dong, tina lee, paul lyren, andre rowe, shradha maheshwa</p>
+    <p>© 2026 Andre Rowe</p>
+  </footer>
+
+</main>
+
+</body>
+</html>

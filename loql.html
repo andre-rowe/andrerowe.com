@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loql · UX case study · Andre Rowe</title>
+  <meta name="description" content="Designing group travel that feels local: research, gamified voting, and a tested mobile prototype. General Assembly UXDI capstone, lead designer.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+
+<main class="wrap">
+
+  <a class="crumb" href="index.html">← andrerowe.com</a>
+
+  <header class="hero-p">
+    <p class="statusline"><span class="dot dot-amber" aria-hidden="true"></span>ux case study · general assembly uxdi · 2022</p>
+    <h1>Loql: group travel that feels local</h1>
+    <p class="thesis">Group trips die in the group chat. We designed a mobile app where the planning itself is the fun part: shared itineraries, gamified voting, and local discovery.</p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Lead designer (team of 3)</dd></div>
+      <div><dt>Focus</dt><dd>UX research · product strategy · branding · mobile design</dd></div>
+      <div><dt>Tools</dt><dd>Figma · surveys · moderated usability tests</dd></div>
+      <div><dt>Outcome</dt><dd>High fidelity prototype, tested with users</dd></div>
+    </dl>
+  </header>
+
+  <nav class="chapters" aria-label="Chapters">
+    <a href="#brief">brief</a>
+    <a href="#research">research</a>
+    <a href="#synthesis">synthesis</a>
+    <a href="#design">design</a>
+    <a href="#style">style</a>
+    <a href="#testing">testing</a>
+    <a href="#reflection">reflection</a>
+  </nav>
+
+  <div class="rail">
+
+    <section class="section rv" id="brief" aria-labelledby="brief-h">
+      <h2 class="eyebrow" id="brief-h">01 · the brief</h2>
+      <p class="pull">Planning a trip with friends means one exhausted organizer and a hundred unread messages. <em>Why does something fun feel like work?</em></p>
+      <p class="prose">Loql is a concept for travelers who want authentic, local experiences without the coordination pain. The bet: if a group can see options, vote on them, and watch an itinerary assemble itself, planning stops being a chore one person absorbs and becomes something the group actually does together.</p>
+      <p class="prose">As lead designer I owned the research plan, the feature strategy, and the mobile design language, working alongside two teammates through a full double diamond.</p>
+    </section>
+
+    <section class="section rv" id="research" aria-labelledby="research-h">
+      <h2 class="eyebrow" id="research-h">02 · research</h2>
+      <p class="prose">We started wide: a UX audit of existing travel tools, a competitive analysis of their group features, a screener survey, and moderated interviews with people who had recently planned group trips.</p>
+      <div class="nums" style="margin-top:1.4rem;">
+        <div class="num"><b>82</b><span>screener survey responses</span></div>
+        <div class="num"><b>5</b><span>in-depth user interviews</span></div>
+        <div class="num"><b>4</b><span>competitors audited for group flows</span></div>
+      </div>
+      <div class="cols-2" style="margin-top:1.8rem;">
+        <div>
+          <h4>What people told us</h4>
+          <ul class="plist">
+            <li>They already use travel apps to find activities, but alone</li>
+            <li>They want shared input, not a single organizer carrying the trip</li>
+            <li>Plans need to flex: budgets, energy levels, and weather all shift</li>
+            <li>Most travel is social: fun trips, or visiting friends and family</li>
+          </ul>
+        </div>
+        <div>
+          <h4>What that meant</h4>
+          <ul class="plist">
+            <li>Discovery is solved; group decision making is not</li>
+            <li>The product is the consensus, not the catalog</li>
+            <li>Voting must be light, fast, and a little bit fun</li>
+            <li>The itinerary should build itself from group choices</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rv" id="synthesis" aria-labelledby="synthesis-h">
+      <h2 class="eyebrow" id="synthesis-h">03 · synthesis</h2>
+      <p class="prose">We condensed the research into Jessica: 30, a biologist in New York, planning an escape with friends. She stays in rentals to feel local, hunts for activities across half a dozen apps, and ends up the default organizer because nobody else opens the spreadsheet.</p>
+      <div class="cols-2" style="margin-top:1.6rem;">
+        <div>
+          <h4>Jessica needs</h4>
+          <ul class="plist">
+            <li>Activities everyone will actually enjoy</li>
+            <li>To stay inside a shared budget</li>
+            <li>To feel like a local, not a tourist</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Jessica is blocked by</h4>
+          <ul class="plist">
+            <li>Guessing what the group wants without prior knowledge</li>
+            <li>Coordinating around uncertainty and everyone's schedules</li>
+            <li>Carrying the plan alone while others just show up</li>
+          </ul>
+        </div>
+      </div>
+      <p class="pull" style="margin-top:2rem;">How might we make group planning feel <em>shared, flexible, and fun</em> instead of one person's unpaid job?</p>
+    </section>
+
+    <section class="section rv" id="design" aria-labelledby="design-h">
+      <h2 class="eyebrow" id="design-h">04 · design decisions</h2>
+      <p class="prose">Three features carried the concept, each mapped directly to a research finding.</p>
+      <div style="margin-top:1.4rem;">
+        <article class="card">
+          <div class="card-head"><h3>Group itinerary building</h3><p class="tags">finding: no one wants to be the organizer</p></div>
+          <p>Every approved activity drops into a shared, visual itinerary. The plan assembles itself from group decisions, so no single person owns the spreadsheet.</p>
+        </article>
+        <article class="card">
+          <div class="card-head"><h3>Gamified voting</h3><p class="tags">finding: shared input beats solo decisions</p></div>
+          <p>Activities become cards the group swipes and votes on. Consensus is visible in real time, which turns the most painful part of planning into the most social one.</p>
+        </article>
+        <article class="card">
+          <div class="card-head"><h3>Interactive onboarding</h3><p class="tags">finding: plans must flex per group</p></div>
+          <p>A short setup captures each traveler's budget, pace, and interests, so recommendations and votes start from what the whole group actually wants.</p>
+        </article>
+      </div>
+      <p class="prose" style="margin-top:1rem;">Want to feel the voting concept? <a href="playground.html">Try the interactive demo</a> built for this site.</p>
+    </section>
+
+    <section class="section rv" id="style" aria-labelledby="style-h">
+      <h2 class="eyebrow" id="style-h">05 · style guide</h2>
+      <p class="prose">Warm sunset tones bring the energy; ocean blues keep it calm and trustworthy. Rounded, minimal icons and generous tap targets keep the UI out of the way. This palette and type system are rendered live in code below, not screenshotted.</p>
+      <div class="swatches" role="img" aria-label="Loql color palette: sunset coral, golden hour, ocean deep, sea glass, sand">
+        <figure class="swatch"><i style="background:#FF6B57;"></i><figcaption>sunset coral</figcaption></figure>
+        <figure class="swatch"><i style="background:#FFB648;"></i><figcaption>golden hour</figcaption></figure>
+        <figure class="swatch"><i style="background:#155E75;"></i><figcaption>ocean deep</figcaption></figure>
+        <figure class="swatch"><i style="background:#7BC4C4;"></i><figcaption>sea glass</figcaption></figure>
+        <figure class="swatch"><i style="background:#FAF3E7;"></i><figcaption>sand</figcaption></figure>
+      </div>
+      <div class="type-spec">
+        <div class="row"><span class="use">display</span><span style="font-family:Georgia, 'Times New Roman', serif; font-size:1.5rem; font-weight:700;">Bitter, for headlines with warmth</span></div>
+        <div class="row"><span class="use">subheading</span><span style="font-weight:600; font-size:1.1rem;">Georama carries structure between sections</span></div>
+        <div class="row"><span class="use">body</span><span>Nunito keeps reading friendly and fast on mobile</span></div>
+        <div class="row"><span class="use">buttons</span><span style="font-family:var(--mono); font-size:0.9rem;">Roboto for compact, tappable labels</span></div>
+      </div>
+    </section>
+
+    <section class="section rv" id="testing" aria-labelledby="testing-h">
+      <h2 class="eyebrow" id="testing-h">06 · prototype &amp; testing</h2>
+      <p class="prose">We built the full flow in Figma at high fidelity and put it in front of users in moderated sessions: find an activity, vote with the group, watch the itinerary update.</p>
+      <figure class="shot phone-shot">
+        <img src="images/loql-prototype.webp" alt="Loql high fidelity mobile screen: an activity detail page for Cloud Gate in Chicago with rating, price, duration, a description, and Save For Later plus Add to Trip actions." width="560" height="1074" loading="lazy">
+        <figcaption>activity detail from the high fidelity prototype: rating, price, duration, one tap to propose it to the group</figcaption>
+      </figure>
+      <div class="nums" style="margin-top:1.6rem;">
+        <div class="num"><b>92%</b><span>task success on location based search</span></div>
+        <div class="num"><b>4.7/5</b><span>average likelihood to recommend</span></div>
+        <div class="num"><b>40%</b><span>less time to plan a group trip in test scenarios</span></div>
+      </div>
+    </section>
+
+    <section class="section rv" id="reflection" aria-labelledby="reflection-h">
+      <h2 class="eyebrow" id="reflection-h">07 · reflection</h2>
+      <p class="prose">Loql taught me that the hardest interface in a social product is the group itself. The design work that mattered was not the screens; it was deciding what the group sees together, what stays individual, and how consensus becomes visible without pressure.</p>
+      <p class="prose">It is also where I learned to argue from evidence. Every feature on this page traces to a finding, and the ones that did not trace got cut.</p>
+    </section>
+
+  </div>
+
+  <nav class="pager" aria-label="More case studies">
+    <span><span class="muted">next study</span><br><a href="truth-be-told.html">Truth Be Told →</a></span>
+    <span class="next"><span class="muted">back to</span><br><a href="index.html">all work</a></span>
+  </nav>
+
+  <footer class="foot">
+    <p>research, strategy, and design: andre rowe with chloe borin and elsie lee</p>
+    <p>© 2026 Andre Rowe</p>
+  </footer>
+
+</main>
+
+</body>
+</html>

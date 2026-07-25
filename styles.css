@@ -431,6 +431,213 @@ a:hover { color: var(--deep); }
 }
 .note-planned p { color: var(--ink-soft); margin: 0; }
 
+/* ============================================================
+   v1.1 additions: reveals, lens toggle, case-study chapters,
+   design artifacts, playground link card
+   ============================================================ */
+
+/* ---------- scroll reveals (JS adds .in; no-JS shows everything) ---------- */
+.rv { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .rv {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .js .rv.in { opacity: 1; transform: none; }
+}
+
+/* ---------- lens toggle (signature detail) ---------- */
+.lens {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem;
+  background: var(--card);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+.lens button {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--ink-soft);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.lens button[aria-pressed="true"] { background: var(--teal); color: #fff; }
+body.lens-design .lens button[aria-pressed="true"] { background: var(--amber); }
+.lens-label {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0 0.75rem 0 0.9rem;
+}
+[data-lens] { transition: opacity 0.25s ease; }
+.lens-fade { opacity: 0; }
+
+/* ---------- case-study chapter nav ---------- */
+.chapters {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.4rem;
+  padding: 0.8rem 0;
+  margin-bottom: 1rem;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+.chapters a { text-decoration: none; color: var(--ink-soft); }
+.chapters a:hover { color: var(--deep); }
+.chapters a.now { color: var(--teal); font-weight: 500; }
+.chapters a.now::before { content: "▸ "; color: var(--green); }
+
+/* ---------- big pull statement (HMW etc.) ---------- */
+.pull {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--deep);
+  max-width: 26ch;
+  margin: 0.5rem 0 1rem;
+}
+.pull em { font-style: normal; color: var(--teal); }
+
+/* ---------- volunteer / user quotes ---------- */
+.vquotes { display: grid; gap: 1rem; }
+.vquote {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--teal);
+  border-radius: 8px;
+  padding: 1.05rem 1.25rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  font-size: 0.98rem;
+}
+.vquote footer {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* ---------- results table with bars ---------- */
+.results { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+.results th, .results td {
+  text-align: left;
+  padding: 0.65rem 0.9rem 0.65rem 0;
+  border-bottom: 1px dashed var(--line);
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+.results th {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.results td:first-child { color: var(--ink); font-weight: 600; max-width: 16rem; }
+.bar {
+  display: inline-block;
+  position: relative;
+  width: 5.2rem; height: 0.5rem;
+  background: var(--line);
+  border-radius: 99px;
+  margin-right: 0.55rem;
+  vertical-align: 0.05em;
+  overflow: hidden;
+}
+.bar i {
+  position: absolute; inset: 0 auto 0 0;
+  width: var(--w, 0%);
+  background: var(--teal);
+  border-radius: 99px;
+}
+.bar.good i { background: var(--green); }
+.results .pct { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
+
+/* ---------- style-guide rendered natively ---------- */
+.swatches { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.4rem; }
+.swatch {
+  width: 7.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card);
+}
+.swatch i { display: block; height: 3.4rem; }
+.swatch figcaption {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+  padding: 0.45rem 0.6rem;
+}
+.type-spec { margin-top: 0.9rem; border-top: 1px dashed var(--line); }
+.type-spec .row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+.type-spec .use {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* ---------- artifact layout ---------- */
+.phone-shot {
+  margin: 1.5rem auto 0.5rem;
+  max-width: 300px;
+}
+.phone-shot img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px -18px rgba(20, 54, 65, 0.35);
+}
+.shot-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ---------- design-lane card accent ---------- */
+.card-design { border-left: 3px solid var(--amber); }
+.card-design .card-sub { color: var(--amber); }
+
+/* ---------- playground ---------- */
+.demo-frame {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 40rem) {
   .wrap { padding-top: 3rem; }
@@ -439,4 +646,7 @@ a:hover { color: var(--deep); }
   .stack-row { grid-template-columns: 1fr; gap: 0.25rem; }
   .pipe-row { grid-template-columns: 1fr; gap: 0.15rem; }
   .pipe-when { margin-top: 0.1rem; }
+  .cols-2 { grid-template-columns: 1fr; }
+  .shot-duo { grid-template-columns: 1fr; }
+  .type-spec .row { grid-template-columns: 1fr; gap: 0.2rem; }
 }

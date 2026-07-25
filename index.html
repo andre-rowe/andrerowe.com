@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andre Rowe — IT Support · Cloud Infrastructure &amp; DevOps</title>
-  <meta name="description" content="IT Support Specialist at NYU Langone Health, moving up the stack: AWS, Azure, Python, PowerShell. Cloud support, systems, and junior DevOps roles.">
-  <meta property="og:title" content="Andre Rowe — IT Support · Cloud Infrastructure &amp; DevOps">
-  <meta property="og:description" content="I keep a 3,000+ user healthcare enterprise running — and I'm building the automation layer on top of it.">
+  <title>Andre Rowe · IT &amp; Cloud · UX Design</title>
+  <meta name="description" content="IT Support Specialist at NYU Langone Health and General Assembly trained UX designer. Systems that stay up, interfaces people understand: cloud support, junior DevOps, and UX roles.">
+  <meta property="og:title" content="Andre Rowe · IT &amp; Cloud · UX Design">
+  <meta property="og:description" content="I keep a 3,000+ user hospital enterprise running, and I design like the person on the other end matters. Because I have been the person on the other end.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 
@@ -20,11 +21,18 @@
 
   <!-- ===== HERO ===== -->
   <header class="hero">
-    <p class="statusline"><span class="dot dot-green pulse" aria-hidden="true"></span>operational — it support, nyu langone health</p>
+    <p class="statusline"><span class="dot dot-green pulse" aria-hidden="true"></span>operational · it support, nyu langone health</p>
     <h1>Andre Rowe</h1>
-    <p class="role">IT Support Specialist&ensp;·&ensp;Cloud Infrastructure &amp; DevOps</p>
-    <p class="thesis">I keep a 3,000+ user healthcare enterprise running — and I'm building the automation layer on top of it.</p>
-    <p class="metrics">3,000+ users&ensp;·&ensp;500+ endpoints&ensp;·&ensp;50+ tickets/wk&ensp;·&ensp;95%+ SLA</p>
+    <p class="role" data-lens data-systems="IT Support Specialist · Cloud Infrastructure &amp; DevOps" data-design="UX Designer · General Assembly UXDI · Research to Prototype">IT Support Specialist&ensp;·&ensp;Cloud Infrastructure &amp; DevOps</p>
+    <p class="thesis" data-lens data-systems="I keep a 3,000+ user healthcare enterprise running, and I'm building the automation layer on top of it." data-design="I design like the person on the other end matters, because at the help desk, I am the person on the other end.">I keep a 3,000+ user healthcare enterprise running, and I'm building the automation layer on top of it.</p>
+    <p class="metrics" data-lens data-systems="3,000+ users · 500+ endpoints · 50+ tickets/wk · 95%+ SLA" data-design="2 shipped case studies · 82 survey responses · 10 usability sessions · 1 real nonprofit client">3,000+ users&ensp;·&ensp;500+ endpoints&ensp;·&ensp;50+ tickets/wk&ensp;·&ensp;95%+ SLA</p>
+
+    <div class="lens" role="group" aria-label="View this page through a different lens">
+      <span class="lens-label">lens</span>
+      <button type="button" data-mode="systems" aria-pressed="true">systems</button>
+      <button type="button" data-mode="design" aria-pressed="false">design</button>
+    </div>
+
     <nav class="actions" aria-label="Primary links">
       <a class="btn" href="Andre_Rowe_Resume.pdf">Resume (PDF)</a>
       <a class="link" href="https://github.com/andre-rowe">GitHub</a>
@@ -35,9 +43,52 @@
 
   <div class="rail">
 
+    <!-- ===== WHY BOTH ===== -->
+    <section class="section rv" aria-labelledby="thread">
+      <h2 class="eyebrow" id="thread">the thread</h2>
+      <p class="prose"><strong>Most engineers never watch a real person fail to use what they built. Most designers never carry the pager when it breaks.</strong> I have done both jobs, and each one made me better at the other.</p>
+      <p class="prose">Support taught me where software actually hurts people. UX research taught me how to find out why, and design taught me what to do about it. The projects below alternate between those two muscles on purpose.</p>
+    </section>
+
+    <!-- ===== DESIGN PRACTICE ===== -->
+    <section class="section rv" aria-labelledby="design">
+      <h2 class="eyebrow" id="design">design practice</h2>
+
+      <article class="card card-design">
+        <div class="card-head">
+          <h3>Truth Be Told</h3>
+          <p class="tags">UX research · civic design · Figma</p>
+        </div>
+        <p class="card-sub">Volunteer onboarding for a nonprofit serving incarcerated women</p>
+        <p>Interviews, a persona and journey map, and a rebuilt signup flow. Registration task success went from 70% on the old site to 100% in final testing.</p>
+        <a class="card-link" href="truth-be-told.html">case study →</a>
+      </article>
+
+      <article class="card card-design">
+        <div class="card-head">
+          <h3>Loql</h3>
+          <p class="tags">UX research · product strategy · mobile design</p>
+        </div>
+        <p class="card-sub">Group travel planning, redesigned around consensus · GA UXDI capstone</p>
+        <p>82 survey responses and 5 interviews became a tested high fidelity prototype: shared itineraries, gamified voting, and onboarding that learns the group.</p>
+        <a class="card-link" href="loql.html">case study →</a>
+      </article>
+
+      <article class="card card-design">
+        <div class="card-head">
+          <h3>The voting demo</h3>
+          <p class="tags">vanilla JS · this site's design system</p>
+        </div>
+        <p class="card-sub">Loql's core concept, working in your browser</p>
+        <p>Instead of describing the gamified voting idea, I built it. Vote on a Saturday in New York with three simulated friends and watch the itinerary assemble.</p>
+        <a class="card-link" href="playground.html">play it →</a>
+      </article>
+
+    </section>
+
     <!-- ===== PROOF ===== -->
-    <section class="section" aria-labelledby="proof">
-      <h2 class="eyebrow" id="proof">proof of work</h2>
+    <section class="section rv" aria-labelledby="proof">
+      <h2 class="eyebrow" id="proof">engineering proof</h2>
 
       <article class="card">
         <div class="card-head">
@@ -45,8 +96,8 @@
           <p class="tags">Python · LLM APIs (Anthropic Claude)</p>
         </div>
         <p class="card-sub">Multi-agent AI orchestration system</p>
-        <p>Orchestrator–specialist architecture that routes tasks to purpose-built agents for automated document generation and workflow execution.</p>
-        <span class="card-link muted" style="color:var(--ink-soft);">work in progress — repo coming soon</span>
+        <p>Orchestrator specialist architecture that routes tasks to purpose-built agents for automated document generation and workflow execution.</p>
+        <span class="card-link muted" style="color:var(--ink-soft);">work in progress, repo coming soon</span>
       </article>
 
       <article class="card">
@@ -54,7 +105,7 @@
           <h3>Bayou Alert</h3>
           <p class="tags">React · Python (Azure Functions) · Cosmos DB · Mapbox</p>
         </div>
-        <p class="card-sub">Real-time flood-warning dashboard — academic project</p>
+        <p class="card-sub">Real-time flood-warning dashboard · academic project</p>
         <p>A serverless dashboard that ingests live USGS gauge data and maps location-specific flood conditions across Houston's bayou network.</p>
         <a class="card-link" href="bayou-alert.html">case study →</a>
       </article>
@@ -64,7 +115,7 @@
           <h3>Project Volta</h3>
           <p class="tags">Python · TensorFlow (DQN) · scikit-learn</p>
         </div>
-        <p class="card-sub">AI battery-grid simulation — academic project</p>
+        <p class="card-sub">AI battery-grid simulation · academic project</p>
         <p>A reinforcement-learning DQN agent dispatching a simulated home-battery fleet as a virtual power plant, with next-hour demand forecasting; 30% simulated cut in peak grid draw.</p>
         <a class="card-link" href="project-volta.html">case study →</a>
       </article>
@@ -74,7 +125,7 @@
           <h3>Grazioso Animal Rescue</h3>
           <p class="tags">Python · MongoDB · Dash</p>
         </div>
-        <p class="card-sub">Rescue-operations dashboard — SNHU CS-340</p>
+        <p class="card-sub">Rescue-operations dashboard · SNHU CS-340</p>
         <p>A PyMongo CRUD module and indexed MongoDB layer powering an interactive Dash dashboard over 5,000+ shelter records; cut manual record-sifting by ~80%.</p>
         <a class="card-link" href="grazioso-animal-rescue.html">case study →</a>
       </article>
@@ -84,7 +135,7 @@
           <h3>Travlr Getaways</h3>
           <p class="tags">MongoDB · Express · Angular · Node</p>
         </div>
-        <p class="card-sub">Full-stack travel platform — SNHU CS-465</p>
+        <p class="card-sub">Full-stack travel platform · SNHU CS-465</p>
         <p>A static brochure site rebuilt as a MEAN-stack app: a REST CRUD API, a JWT-secured Angular admin SPA, and Mongoose-validated data models.</p>
         <a class="card-link" href="travlr-getaways.html">case study →</a>
       </article>
@@ -92,7 +143,7 @@
     </section>
 
     <!-- ===== STACK ===== -->
-    <section class="section" aria-labelledby="stack">
+    <section class="section rv" aria-labelledby="stack">
       <h2 class="eyebrow" id="stack">stack</h2>
       <dl class="stack">
         <div class="stack-row">
@@ -102,6 +153,10 @@
         <div class="stack-row">
           <dt>Systems &amp; IT operations</dt>
           <dd>Active Directory · Windows &amp; macOS deployment · Networking · HIPAA-environment compliance · ServiceNow</dd>
+        </div>
+        <div class="stack-row">
+          <dt>Design &amp; research</dt>
+          <dd>Figma · user interviews &amp; surveys · personas &amp; journey mapping · usability testing (moderated + UsabilityHub) · Miro</dd>
         </div>
         <div class="stack-row">
           <dt>Development &amp; automation</dt>
@@ -115,43 +170,49 @@
     </section>
 
     <!-- ===== TRAJECTORY ===== -->
-    <section class="section" aria-labelledby="trajectory">
+    <section class="section rv" aria-labelledby="trajectory">
       <h2 class="eyebrow" id="trajectory">trajectory</h2>
       <ul class="pipeline">
         <li class="pipe-row">
           <span class="state state-shipped"><span class="dot dot-green" aria-hidden="true"></span>shipped</span>
-          <span class="pipe-what">B.S., Computer Science — Southern New Hampshire University</span>
+          <span class="pipe-what">UX Design Immersive · General Assembly</span>
+          <span class="pipe-when">2022</span>
+        </li>
+        <li class="pipe-row">
+          <span class="state state-shipped"><span class="dot dot-green" aria-hidden="true"></span>shipped</span>
+          <span class="pipe-what">B.S., Computer Science · Southern New Hampshire University</span>
           <span class="pipe-when">2026</span>
         </li>
         <li class="pipe-row">
           <span class="state state-progress"><span class="dot dot-amber" aria-hidden="true"></span>in&nbsp;progress</span>
-          <span class="pipe-what">AWS Certified Solutions Architect – Associate (SAA-C03)</span>
+          <span class="pipe-what">AWS Certified Solutions Architect - Associate (SAA-C03)</span>
           <span class="pipe-when">exam Sept 2026</span>
         </li>
         <li class="pipe-row">
           <span class="state state-queued"><span class="dot dot-open" aria-hidden="true"></span>queued</span>
-          <span class="pipe-what">M.S., Software Engineering — DevOps Engineering, WGU</span>
+          <span class="pipe-what">M.S., Software Engineering · DevOps Engineering, WGU</span>
           <span class="pipe-when">begins Nov 2026</span>
         </li>
         <li class="pipe-row">
           <span class="state state-queued"><span class="dot dot-open" aria-hidden="true"></span>queued</span>
           <span class="pipe-what">HashiCorp Terraform Associate → Certified Kubernetes Administrator</span>
-          <span class="pipe-when">2026–2027</span>
+          <span class="pipe-when">2026-2027</span>
         </li>
       </ul>
     </section>
 
     <!-- ===== BACKGROUND ===== -->
-    <section class="section" aria-labelledby="background">
+    <section class="section rv" aria-labelledby="background">
       <h2 class="eyebrow" id="background">background</h2>
-      <p class="prose">Before IT, I ran healthcare operations from the inside — supervising medical transport teams at DocGo and coordinating emergency dispatch at Assist Ambulance. Now I support the systems side of the same world at NYU Langone Health: Active Directory, endpoint fleets, HIPAA-compliant infrastructure.</p>
-      <p class="prose">The through-line: when systems fail, people feel it. So I keep them running — and I'm learning to build them better.</p>
+      <p class="prose">Before IT, I ran healthcare operations from the inside: supervising medical transport teams at DocGo and coordinating emergency dispatch at Assist Ambulance. Between operations and engineering came General Assembly's UX immersive, where I learned to treat confusion as a design defect, not a user problem.</p>
+      <p class="prose">Now I support the systems side of the same world at NYU Langone Health: Active Directory, endpoint fleets, HIPAA-compliant infrastructure.</p>
+      <p class="prose">The through-line: when systems fail, people feel it. So I keep them running, I design them to be understood, and I'm learning to build them better.</p>
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section class="section" aria-labelledby="contact">
+    <section class="section rv" aria-labelledby="contact">
       <h2 class="eyebrow" id="contact">contact</h2>
-      <p class="prose">Hiring for remote cloud support, systems, or junior DevOps/platform work?</p>
+      <p class="prose" data-lens data-systems="Hiring for remote cloud support, systems, or junior DevOps/platform work?" data-design="Hiring UX designers or researchers who can talk to engineers in their own language?">Hiring for remote cloud support, systems, or junior DevOps/platform work?</p>
       <p class="contact-mail"><a href="mailto:rowea190@gmail.com">rowea190@gmail.com</a></p>
       <p class="contact-loc">New York, NY</p>
     </section>
@@ -159,7 +220,7 @@
   </div>
 
   <footer class="foot">
-    <p>static html/css · zero js · github pages → aws (s3 + cloudfront via terraform, queued)</p>
+    <p>hand-rolled html/css + ~90 lines of vanilla js · github pages → aws (s3 + cloudfront via terraform, queued)</p>
     <p>© 2026 Andre Rowe</p>
   </footer>
 

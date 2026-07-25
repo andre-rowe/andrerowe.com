@@ -1,9 +1,10 @@
 # andrerowe.com — personal site
 
-Static, zero-JS, one page. Plain HTML + CSS by design — the site itself is the first artifact in the DevOps story (v2 migrates it to AWS via Terraform; see Website_Rebuild_Guide.md).
+Static HTML + CSS with ~90 lines of dependency-free JS (scroll reveals, chapter scrollspy, the systems/design lens, and the voting demo). Everything degrades gracefully with JS off. v2 migrates hosting to AWS via Terraform; see Website_Rebuild_Guide.md.
 
 ## Files
 - `index.html` — main page
+- `loql.html`, `truth-be-told.html` (UX case studies), `playground.html` (live voting demo), `site.js`
 - `bayou-alert.html`, `project-volta.html`, `grazioso-animal-rescue.html`, `travlr-getaways.html` — case-study pages (content migrated from the old portfolio, rebuilt in this design)
 - `styles.css` — all styling, shared by every page
 - `images/` — optimized webp project images (~440KB total)

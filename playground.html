@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground: group voting, live · Andre Rowe</title>
+  <meta name="description" content="A working, in-browser demo of the Loql group voting concept: vote on activities with three simulated friends and watch an itinerary build itself.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+  <style>
+    /* playground-local styles */
+    .stage { display: grid; grid-template-columns: 1fr 15rem; gap: 2rem; align-items: start; }
+    @media (max-width: 46rem) { .stage { grid-template-columns: 1fr; } }
+
+    .deck { position: relative; }
+    .act {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.3rem 1.4rem 1.2rem;
+      margin-bottom: 0.9rem;
+      transition: transform 0.35s ease, opacity 0.35s ease, border-color 0.25s ease;
+    }
+    .act.gone { opacity: 0; transform: translateX(28px) scale(0.98); pointer-events: none; }
+    .act.locked { border-color: var(--green); }
+    .act-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+    .act h3 { font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--deep); }
+    .act .meta { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-soft); }
+    .act .desc { color: var(--ink-soft); font-size: 0.95rem; margin-top: 0.35rem; max-width: 52ch; }
+
+    .votes { display: flex; align-items: center; gap: 0.45rem; margin-top: 0.9rem; min-height: 1.9rem; flex-wrap: wrap; }
+    .chip {
+      font-family: var(--mono); font-size: 0.7rem;
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 0.18rem 0.6rem; color: var(--ink-soft);
+      opacity: 0; transform: translateY(4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .chip.show { opacity: 1; transform: none; }
+    .chip.yes { border-color: var(--green); color: var(--green); }
+    .chip.no  { border-color: var(--amber); color: var(--amber); }
+
+    .act-actions { display: flex; gap: 0.6rem; margin-top: 0.9rem; }
+    .vbtn {
+      font-family: var(--mono); font-size: 0.85rem; font-weight: 500;
+      border-radius: 8px; border: 1px solid var(--line);
+      background: var(--card); color: var(--ink);
+      padding: 0.5rem 1rem; cursor: pointer;
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+    .vbtn:hover { transform: translateY(-1px); }
+    .vbtn:active { transform: translateY(0) scale(0.98); }
+    .vbtn.yes:hover { border-color: var(--green); color: var(--green); }
+    .vbtn.skip:hover { border-color: var(--amber); color: var(--amber); }
+    .vbtn:disabled { opacity: 0.45; cursor: default; transform: none; }
+
+    .consensus { height: 0.45rem; background: var(--line); border-radius: 99px; overflow: hidden; margin-top: 0.9rem; }
+    .consensus i { display: block; height: 100%; width: 0%; background: var(--green); border-radius: 99px; transition: width 0.45s ease; }
+
+    .itin {
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      padding: 1.2rem 1.3rem; position: sticky; top: 1rem;
+    }
+    .itin h2 { font-family: var(--mono); font-weight: 500; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.8rem; }
+    .itin ol { list-style: none; min-height: 3rem; }
+    .itin li {
+      font-size: 0.92rem; font-weight: 600; color: var(--ink);
+      padding: 0.45rem 0; border-bottom: 1px dashed var(--line);
+      opacity: 0; transform: translateY(6px); transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .itin li.show { opacity: 1; transform: none; }
+    .itin li .t { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-soft); font-weight: 400; display: block; }
+    .itin .empty { font-size: 0.85rem; color: var(--ink-soft); font-family: var(--mono); }
+    .done-note { margin-top: 0.9rem; font-size: 0.85rem; color: var(--green); font-family: var(--mono); display: none; }
+    .reset { margin-top: 1rem; display: none; }
+  </style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <a class="crumb" href="index.html">← andrerowe.com</a>
+
+  <header class="hero-p">
+    <p class="statusline"><span class="dot dot-green pulse" aria-hidden="true"></span>playground · live demo · zero dependencies</p>
+    <h1>Group voting, playable</h1>
+    <p class="thesis">The core idea from the <a href="loql.html">Loql case study</a>, working in your browser: vote on a Saturday in New York with three friends, watch consensus form, and let the itinerary build itself.</p>
+    <p class="metrics">you + chloe, elsie &amp; jess · majority locks an activity in · built with vanilla js in this site's design system</p>
+  </header>
+
+  <div class="stage">
+
+    <section class="deck" aria-label="Activities to vote on" id="deck"></section>
+
+    <aside class="itin" aria-live="polite">
+      <h2>the itinerary</h2>
+      <ol id="itin-list"></ol>
+      <p class="empty" id="itin-empty">nothing locked in yet</p>
+      <p class="done-note" id="done-note">✓ day planned. no group chat required.</p>
+      <button class="vbtn reset" id="reset">run it back</button>
+    </aside>
+
+  </div>
+
+  <footer class="foot">
+    <p>why this exists: proving the concept beats describing it</p>
+    <p>© 2026 Andre Rowe</p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  const ACTS = [
+    { t: "Smorgasburg food market",  time: "11:00", tags: "eat · outdoors · $",    d: "Ninety vendors on the East River. Everyone finds something, nobody agrees on one restaurant." },
+    { t: "The Met, one wing only",   time: "13:30", tags: "art · indoors · $$",    d: "The trick to museums with groups: pick a single wing and a hard exit time." },
+    { t: "Ferry to Governors Island",time: "15:30", tags: "views · outdoors · $",  d: "Ten minute ride, skyline views, rental bikes on the other side." },
+    { t: "Karaoke in K-Town",        time: "21:00", tags: "night · loud · $$",     d: "Private room, an hour minimum, zero judgment." },
+    { t: "Comedy cellar late show",  time: "23:00", tags: "night · indoors · $$",  d: "Line up early or you are not getting in. Worth it." },
+    { t: "Bagels first, obviously",  time: "09:30", tags: "eat · classic · $",     d: "The one item on which New York groups reach instant consensus." }
+  ];
+  const FRIENDS = ["chloe", "elsie", "jess"];
+  const deck = document.getElementById("deck");
+  const list = document.getElementById("itin-list");
+  const empty = document.getElementById("itin-empty");
+  const doneNote = document.getElementById("done-note");
+  const resetBtn = document.getElementById("reset");
+  let locked = 0, settled = 0;
+
+  function build() {
+    deck.innerHTML = ""; list.innerHTML = "";
+    empty.style.display = ""; doneNote.style.display = "none"; resetBtn.style.display = "none";
+    locked = 0; settled = 0;
+    ACTS.forEach((a, i) => {
+      const el = document.createElement("article");
+      el.className = "act";
+      el.innerHTML =
+        '<div class="act-top"><h3>' + a.t + '</h3><span class="meta">' + a.time + " · " + a.tags + "</span></div>" +
+        '<p class="desc">' + a.d + "</p>" +
+        '<div class="votes" aria-label="Votes"></div>' +
+        '<div class="consensus" aria-hidden="true"><i></i></div>' +
+        '<div class="act-actions">' +
+          '<button class="vbtn yes">i’m in</button>' +
+          '<button class="vbtn skip">skip</button>' +
+        "</div>";
+      deck.appendChild(el);
+      const yes = el.querySelector(".yes"), skip = el.querySelector(".skip");
+      yes.addEventListener("click", () => vote(el, a, true));
+      skip.addEventListener("click", () => vote(el, a, false));
+    });
+  }
+
+  function vote(el, a, mine) {
+    el.querySelectorAll(".vbtn").forEach(b => b.disabled = true);
+    const votesEl = el.querySelector(".votes");
+    const barEl = el.querySelector(".consensus i");
+    const tally = [mine];
+    addChip(votesEl, "you", mine);
+    updateBar(barEl, tally);
+
+    FRIENDS.forEach((f, idx) => {
+      setTimeout(() => {
+        const v = friendVote(mine);
+        tally.push(v);
+        addChip(votesEl, f, v);
+        updateBar(barEl, tally);
+        if (tally.length === 4) conclude(el, a, tally);
+      }, 420 * (idx + 1) + Math.random() * 220);
+    });
+  }
+
+  function friendVote(userSaidYes) {
+    return Math.random() < (userSaidYes ? 0.78 : 0.35);
+  }
+
+  function addChip(wrap, name, v) {
+    const c = document.createElement("span");
+    c.className = "chip " + (v ? "yes" : "no");
+    c.textContent = name + (v ? " · in" : " · pass");
+    wrap.appendChild(c);
+    requestAnimationFrame(() => requestAnimationFrame(() => c.classList.add("show")));
+  }
+
+  function updateBar(bar, tally) {
+    const yes = tally.filter(Boolean).length;
+    bar.style.width = Math.round((yes / 4) * 100) + "%";
+  }
+
+  function conclude(el, a, tally) {
+    const yes = tally.filter(Boolean).length;
+    settled++;
+    setTimeout(() => {
+      if (yes >= 3) {
+        el.classList.add("locked");
+        addToItinerary(a);
+      } else {
+        el.classList.add("gone");
+      }
+      if (settled === ACTS.length) finish();
+    }, 500);
+  }
+
+  function addToItinerary(a) {
+    empty.style.display = "none";
+    const li = document.createElement("li");
+    li.innerHTML = "<span class='t'>" + a.time + "</span>" + a.t;
+    const items = [...list.children];
+    list.appendChild(li);
+    [...list.children].sort((x, y) => x.querySelector(".t").textContent.localeCompare(y.querySelector(".t").textContent))
+      .forEach(n => list.appendChild(n));
+    requestAnimationFrame(() => requestAnimationFrame(() => li.classList.add("show")));
+    locked++;
+  }
+
+  function finish() {
+    doneNote.style.display = "block";
+    resetBtn.style.display = "inline-block";
+    if (!locked) doneNote.textContent = "tough crowd. run it back and vote yes on something.";
+    else doneNote.textContent = "✓ " + locked + " locked in. no group chat required.";
+  }
+
+  resetBtn.addEventListener("click", build);
+  build();
+})();
+</script>
+
+</body>
+</html>
