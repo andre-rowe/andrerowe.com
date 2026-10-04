@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Category: PROFESSIONAL EXPERIENCE (homepage; every item shown carries its own category badge). Facts: canonical record v2.1 -->
+<!-- Category: PROFESSIONAL EXPERIENCE (evidence library; every card carries its own category badge). Data: the evidence registry, embedded inline by the site build -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Andre Rowe | Endpoint Deployment and Security</title>
-  <meta name="description" content="Andre Rowe: Windows endpoint deployment in regulated healthcare (NYU Langone Health Windows 11 migration program), now in a WGU M.S. in Cybersecurity and Information Assurance.">
+  <title>Evidence Library | Andre Rowe</title>
+  <meta name="description" content="Every case study, artifact, project, course and statement behind Andre Rowe's resumes, with its category, status and where to view it.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F4E5F'/%3E%3Ccircle cx='22' cy='32' r='7' fill='%232E9E6B'/%3E%3Crect x='36' y='25' width='16' height='14' rx='3' fill='%23F7FAF9'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="portfolio.css">
   <link rel="stylesheet" href="evidence-card.css">
@@ -18,10 +18,10 @@
     <a class="site-logo" href="index.html" aria-label="Andre Rowe, home">AR.</a>
     <nav class="site-nav" aria-label="Main">
       <ul>
-        <li><a href="index.html" aria-current="page">HOME</a></li>
+        <li><a href="index.html">HOME</a></li>
         <li><a href="experience.html">EXPERIENCE</a></li>
         <li><a href="case-studies.html">CASE STUDIES</a></li>
-        <li><a href="evidence.html">EVIDENCE</a></li>
+        <li><a href="evidence.html" aria-current="page">EVIDENCE</a></li>
         <li><a href="projects.html">PROJECTS</a></li>
         <li><a href="education.html">EDUCATION</a></li>
         <li><a href="validation.html">VALIDATION</a></li>
@@ -32,182 +32,62 @@
 </header>
 <!-- HEADER:END -->
 <main id="main">
-
-  <!-- 1. Positioning (legacy anchors #home and #about kept for links from the existing project pages) -->
-  <section class="hero hero--home" id="home" aria-labelledby="hero-title">
+  <section class="hero hero--compact" aria-labelledby="page-title">
     <div class="wrap">
-      <span id="about" class="anchor" aria-hidden="true"></span>
-      <span class="label">Andre Rowe &middot; Brooklyn, NY &middot; Open to relocation</span>
-      <h1 id="hero-title">Windows endpoint deployment in regulated healthcare, now on a security path.</h1>
-      <p class="lede lede--short">Service Desk Analyst on NYU Langone Health's Windows 11 migration program. Now in the WGU M.S. in Cybersecurity and Information Assurance.</p>
-      <div class="btn-row">
-        <a class="btn btn--primary" href="windows11-migration.html">Read the Windows 11 case study</a>
-        <a class="btn btn--ghost" href="Andre_Rowe_Resume_Endpoint_Engineer.pdf" download>Endpoint resume (PDF)</a>
-      </div>
+      <span class="label">Evidence library</span>
+      <h1 id="page-title">Every item, with its label and status</h1>
+      <p class="lede">The work named on my resumes appears here as cards. Filter by category, by the kind of role you are hiring for, or by status. Items without a public page say "Available on request" or "In progress" instead of linking.</p>
     </div>
   </section>
 
-  <!-- 2. Verified metrics -->
-  <section class="section section--tight section--alt" aria-labelledby="metrics-title">
+  <section class="section section--alt" aria-labelledby="library-title">
     <div class="wrap">
-      <h2 class="kicker" id="metrics-title">NYU Langone Health, Jun to Aug 2025: program scope and my own numbers</h2>
-      <ul class="stats stats--five">
-        <li>
-          <span class="stats__tag stats__tag--scope">Program scope</span>
-          <span class="stats__num">1,000</span>
-          <span class="stats__lbl">endpoints in the migration program (not a personal total)</span>
-        </li>
-        <li>
-          <span class="stats__tag stats__tag--scope">Program scope</span>
-          <span class="stats__num">9</span>
-          <span class="stats__lbl">sites in Manhattan and Brooklyn</span>
-        </li>
-        <li>
-          <span class="stats__tag stats__tag--personal">Personal, daily</span>
-          <span class="stats__num">30+</span>
-          <span class="stats__lbl">devices I staged a day</span>
-        </li>
-        <li>
-          <span class="stats__tag stats__tag--personal">Personal, daily</span>
-          <span class="stats__num">10 to 15</span>
-          <span class="stats__lbl">on-site swaps a day on clinical units</span>
-        </li>
-        <li>
-          <span class="stats__tag stats__tag--personal">Personal, weekly</span>
-          <span class="stats__num">~65</span>
-          <span class="stats__lbl">approximately 65 ServiceNow cases a week</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 3. NYU case study -->
-  <section class="section section--tight" id="process" aria-labelledby="flagship-title">
-    <div class="wrap">
-      <div class="feature">
+      <h2 class="h2" id="library-title">Evidence</h2>
+      <form class="filters" role="search" aria-label="Filter evidence" onsubmit="return false">
         <div>
-          <div class="ev-card__badges">
-            <span class="ev-badge ev-cat ev-cat--pro"><span class="ev-sr">Category: </span><span class="ev-badge__icon" aria-hidden="true">&#9670;</span>PROFESSIONAL EXPERIENCE</span>
-          </div>
-          <h2 class="h2" id="flagship-title">Case study: Windows 11 Migration in a Hospital System</h2>
-          <p class="feature__text">Windows 10 support ended on October 14, 2025. On a 1,000-endpoint Windows 11 migration program across 9 sites, I provisioned devices with Windows Autopilot, worked within an Intune- and Entra ID-managed endpoint environment, worked with BitLocker-enabled endpoints and checked sign-in, mapped drives, printers and departmental applications before every handoff. I handled Active Directory account unlocks, password resets and group membership changes, and coordinated Windows 11 migrations that could be completed remotely.</p>
-          <p class="feature__text">Completed my assignment through its scheduled end. Before it ended, a manager on another NYU Langone team asked me to join his team on a new contract.</p>
-          <div class="btn-row">
-            <a class="btn btn--dark" href="windows11-migration.html">Read the case study</a>
-          </div>
+          <label for="filter-category">Category</label>
+          <select id="filter-category"><option value="">All categories</option></select>
         </div>
-        <dl>
-          <div><dt>Role</dt><dd>Service Desk Analyst, NYU Langone Health (contract via TEKsystems), Jun 2025 to Aug 2025</dd></div>
-          <div><dt>Process</dt><dd>Prep, stage, validate, deploy on site, user readiness, post-deployment support</dd></div>
-          <div><dt>Worked with</dt><dd>
-            <ul class="tags">
-              <li>Windows 11</li><li>Windows Autopilot</li><li>Intune and Entra ID (deployment workflow)</li><li>BitLocker-enabled endpoints</li><li>Active Directory</li><li>ServiceNow</li><li>Wyse thin clients</li>
-            </ul>
-          </dd></div>
-        </dl>
+        <div>
+          <label for="filter-lane">Role</label>
+          <select id="filter-lane"><option value="">All roles</option></select>
+        </div>
+        <div>
+          <label for="filter-status">Status</label>
+          <select id="filter-status"><option value="">All statuses</option></select>
+        </div>
+        <div>
+          <button type="button" id="filter-reset">Reset filters</button>
+        </div>
+      </form>
+      <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
+      <noscript><p class="empty">Turn on JavaScript to see the evidence cards.</p></noscript>
+      <div class="ev-grid" id="evidence-grid"></div>
+      <p class="empty" id="evidence-empty" hidden>Nothing matches these filters. Reset the filters to see every item.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="status-title">
+    <div class="wrap">
+      <span class="kicker">Status key</span>
+      <h2 class="h2" id="status-title">What each status means</h2>
+      <div class="table-wrap">
+        <table class="legend-table">
+          <caption class="ev-sr">Status labels used on evidence cards</caption>
+          <thead><tr><th scope="col">Status</th><th scope="col">Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><span class="ev-badge ev-status ev-status--published">Published</span></td><td>Live on this site or on a public page you can open.</td></tr>
+            <tr><td><span class="ev-badge ev-status ev-status--complete">Complete</span></td><td>Finished and private. Available to a hiring team on request.</td></tr>
+            <tr><td><span class="ev-badge ev-status ev-status--draft">Draft</span></td><td>Written and under my review. Shown here so you know it exists.</td></tr>
+            <tr><td><span class="ev-badge ev-status ev-status--progress">In progress</span></td><td>Under way, such as my master's program.</td></tr>
+            <tr><td><span class="ev-badge ev-status ev-status--designed"><span class="ev-badge__icon" aria-hidden="true">&#9675;</span>DESIGNED / READY TO IMPLEMENT</span></td><td>The specification exists. I have not built it yet.</td></tr>
+            <tr><td><span class="ev-badge ev-status ev-status--implemented"><span class="ev-badge__icon" aria-hidden="true">&#10003;</span>IMPLEMENTED / TESTED / VERIFIED</span></td><td>I built and tested it myself, and the evidence is captured. No lab carries this status yet.</td></tr>
+            <tr><td><span class="ev-badge ev-status ev-status--archive">Archive</span></td><td>Real work outside the roles this site is built for.</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
-
-  <!-- 4. Evidence library -->
-  <section class="section section--alt" id="projects" aria-labelledby="featured-title">
-    <div class="wrap">
-      <span class="kicker">Evidence library</span>
-      <h2 class="h2" id="featured-title">Work you can check</h2>
-      <p class="intro">Every card shows its category and status. Reconstructed artifacts rebuild documents from my NYU Langone work with fictional data.</p>
-      <div class="ev-grid ev-grid--four" data-evidence-ids="AR-28,AR-02,PR-01,PR-04" data-heading-level="3"></div>
-      <p class="note"><a class="link-strong" href="evidence.html">Open the full evidence library (all items, filterable)</a></p>
-    </div>
-  </section>
-
-  <!-- 5. Current labs (legacy anchor #toolbelt) -->
-  <section class="section" id="toolbelt" aria-labelledby="labs-title">
-    <div class="wrap">
-      <span class="kicker">Current labs</span>
-      <h2 class="h2" id="labs-title">Designed, not built yet</h2>
-      <p class="intro">Riverside Health is a fictional hospital. Every lab below is DESIGNED / READY TO IMPLEMENT and NOT STARTED. A lab moves to IMPLEMENTED / TESTED / VERIFIED only after I build and test it myself and link the evidence.</p>
-      <ul class="build-list">
-        <li>
-          <div><strong>Riverside Health Microsoft lab</strong><span class="meta">Entra ID, Intune enrollment, Autopilot, compliance, BitLocker and a hardening baseline on a Windows 11 Arm64 VM, with a step-by-step execution guide and a status board.</span></div>
-          <div class="badges"><span class="ev-badge ev-cat ev-cat--sim"><span class="ev-sr">Category: </span><span class="ev-badge__icon" aria-hidden="true">&#9679;</span>SIMULATED PROFESSIONAL PROJECT</span><span class="ev-badge ev-status ev-status--designed"><span class="ev-sr">Status: </span><span class="ev-badge__icon" aria-hidden="true">&#9675;</span>DESIGNED / READY TO IMPLEMENT</span><span class="ev-badge ev-status ev-status--notstarted">NOT STARTED</span></div>
-        </li>
-        <li>
-          <div><strong>Windows 11 hardening baseline (CS-8)</strong><span class="meta">Planned: baseline settings delivered to the lab VM, with before and after evidence for every setting. Not built yet.</span></div>
-          <div class="badges"><span class="ev-badge ev-cat ev-cat--sim"><span class="ev-sr">Category: </span><span class="ev-badge__icon" aria-hidden="true">&#9679;</span>SIMULATED PROFESSIONAL PROJECT</span><span class="ev-badge ev-status ev-status--designed"><span class="ev-sr">Status: </span><span class="ev-badge__icon" aria-hidden="true">&#9675;</span>DESIGNED / READY TO IMPLEMENT</span><span class="ev-badge ev-status ev-status--notstarted">NOT STARTED</span></div>
-        </li>
-        <li>
-          <div><strong>Quarterly access review (CS-5)</strong><span class="meta">A review of a 200-account fictional directory, with reviewer decisions and remediation.</span></div>
-          <div class="badges"><span class="ev-badge ev-cat ev-cat--sim"><span class="ev-sr">Category: </span><span class="ev-badge__icon" aria-hidden="true">&#9679;</span>SIMULATED PROFESSIONAL PROJECT</span><span class="ev-badge ev-status ev-status--designed"><span class="ev-sr">Status: </span><span class="ev-badge__icon" aria-hidden="true">&#9675;</span>DESIGNED / READY TO IMPLEMENT</span><span class="ev-badge ev-status ev-status--notstarted">NOT STARTED</span></div>
-        </li>
-        <li>
-          <div><strong>User lifecycle automation in PowerShell 7 (CS-6)</strong><span class="meta">Six tools with specifications, test data and Pester test plans. I write the code myself; none is written yet.</span></div>
-          <div class="badges"><span class="ev-badge ev-cat ev-cat--sim"><span class="ev-sr">Category: </span><span class="ev-badge__icon" aria-hidden="true">&#9679;</span>SIMULATED PROFESSIONAL PROJECT</span><span class="ev-badge ev-status ev-status--designed"><span class="ev-sr">Status: </span><span class="ev-badge__icon" aria-hidden="true">&#9675;</span>DESIGNED / READY TO IMPLEMENT</span><span class="ev-badge ev-status ev-status--notstarted">NOT STARTED</span></div>
-        </li>
-        <li>
-          <div><strong>Incident investigation from a public dataset (CS-7)</strong><span class="meta">A packet-capture investigation with a timeline, MITRE ATT&amp;CK mapping and incident report.</span></div>
-          <div class="badges"><span class="ev-badge ev-cat ev-cat--sim"><span class="ev-sr">Category: </span><span class="ev-badge__icon" aria-hidden="true">&#9679;</span>SIMULATED PROFESSIONAL PROJECT</span><span class="ev-badge ev-status ev-status--designed"><span class="ev-sr">Status: </span><span class="ev-badge__icon" aria-hidden="true">&#9675;</span>DESIGNED / READY TO IMPLEMENT</span><span class="ev-badge ev-status ev-status--notstarted">NOT STARTED</span></div>
-        </li>
-      </ul>
-      <p class="note"><a href="case-studies.html#simulated-title">See the simulated projects and lab designs</a></p>
-    </div>
-  </section>
-
-  <!-- 6. Validation (legacy anchor #education: two of the three statements are from SNHU) -->
-  <section class="section section--alt" id="education" aria-labelledby="validation-title">
-    <div class="wrap">
-      <span class="kicker">Validation</span>
-      <h2 class="h2" id="validation-title">In other people's words</h2>
-      <p class="intro">Each statement is quoted exactly as the person approved it.</p>
-      <div class="quotes">
-        <figure class="quote">
-          <blockquote><p>"Andre was always a great student to work with, and his follow-through with suggestions or advice was outstanding. Communication is such a key skill in today's world, and Andre excels at it. He listened to my feedback and applied it, term by term, impeccably all the way to the end."</p></blockquote>
-          <figcaption><strong>Darren Brown</strong>Academic Advisor, Southern New Hampshire University</figcaption>
-        </figure>
-        <figure class="quote">
-          <blockquote><p>"Andre earned an A in CS-300 Data Structures and Algorithms. His pseudocode was organized into clear, readable sections that covered every requirement, his C++ code was well commented, and his approach to choosing the right algorithms and data structures was sound."</p></blockquote>
-          <figcaption><strong>Dr. Sherri Maciosek</strong>Information Systems Adjunct Faculty, SNHU</figcaption>
-        </figure>
-        <figure class="quote">
-          <blockquote><p>"Andre is an innovative, collaborative and skilled designer. His ideas simplified the experience for the users while hitting all the business goals."</p></blockquote>
-          <figcaption><strong>Ruhee Charania</strong>Product Designer II, SpotHero (Pitch teammate, 2022)</figcaption>
-        </figure>
-      </div>
-      <p class="note"><a href="validation.html">See all validation</a> &middot; <a href="education.html">Education</a></p>
-    </div>
-  </section>
-
-  <!-- 7. Resume -->
-  <section class="section" aria-labelledby="resume-title">
-    <div class="wrap">
-      <span class="kicker">Resumes</span>
-      <h2 class="h2" id="resume-title">The resume for your opening</h2>
-      <p class="intro">Six two-page PDFs built from one set of facts. They differ in emphasis, not in what they claim.</p>
-      <ol class="resume-list">
-        <li><a href="Andre_Rowe_Resume_Endpoint_Engineer.pdf" download><strong>Endpoint Engineer</strong> (default)</a></li>
-        <li><a href="Andre_Rowe_Resume_Enterprise_IT_Systems_Analyst.pdf" download><strong>Enterprise IT Systems Analyst</strong></a></li>
-        <li><a href="Andre_Rowe_Resume_Cybersecurity_Analyst.pdf" download><strong>Cybersecurity Analyst</strong></a></li>
-        <li><a href="Andre_Rowe_Resume_IAM_Analyst.pdf" download><strong>IAM Analyst</strong></a></li>
-        <li><a href="Andre_Rowe_Resume_GRC_Analyst.pdf" download><strong>GRC Analyst</strong></a></li>
-        <li><a href="Andre_Rowe_Resume_Technical_Operations.pdf" download><strong>Technical Operations</strong></a></li>
-      </ol>
-      <p class="note"><a href="resume.html">Which resume fits which role</a></p>
-    </div>
-  </section>
-
-  <!-- 8. Contact -->
-  <section class="section section--alt" id="contact" aria-labelledby="contact-title">
-    <div class="wrap">
-      <span class="kicker">Contact</span>
-      <h2 class="h2" id="contact-title">Get in touch</h2>
-      <ul class="contact-list">
-        <li><span>Email</span><a href="mailto:rowea190@gmail.com">rowea190@gmail.com</a></li>
-        <li><span>LinkedIn</span><a href="https://linkedin.com/in/rowecreates" rel="noopener">linkedin.com/in/rowecreates</a></li>
-        <li><span>GitHub</span><a href="https://github.com/andre-rowe" rel="noopener">github.com/andre-rowe</a></li>
-        <li><span>Phone</span><a href="tel:+15169681816">516-968-1816</a></li>
-      </ul>
-    </div>
-  </section>
-
 </main>
 <!-- FOOTER:START -->
 <footer class="site-footer">

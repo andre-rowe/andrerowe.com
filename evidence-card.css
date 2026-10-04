@@ -1,0 +1,211 @@
+/*
+ * Evidence card component styles for andrerowe.com
+ * Category: PROFESSIONAL EXPERIENCE (component styles)
+ * Version 1.1, October 3, 2026 (reconstructed-artifact banner). Matches the navy and clinical-teal family of windows11-migration.css.
+ * All badge text and background pairs meet WCAG AA contrast (4.5:1 or better).
+ */
+:root {
+  --ev-ink: #16223a;
+  --ev-muted: #4d5a72;
+  --ev-line: #dfe6ef;
+  --ev-paper: #ffffff;
+  --ev-accent: #0f6e68;
+  /* Category colors: five distinct hues, each paired with white text (contrast 7:1 or better) */
+  --ev-cat-pro: #132544;  /* navy: PROFESSIONAL EXPERIENCE */
+  --ev-cat-rec: #0b5f5a;  /* deep teal: RECONSTRUCTED PROFESSIONAL ARTIFACT */
+  --ev-cat-aca: #5b2f91;  /* violet: ACADEMIC PROJECT */
+  --ev-cat-sim: #8f3a0c;  /* burnt orange: SIMULATED PROFESSIONAL PROJECT */
+  --ev-cat-lab: #8a1546;  /* crimson: HANDS-ON LAB */
+}
+
+.ev-sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+evidence-card { display: block; }
+
+.ev-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--ev-paper);
+  color: var(--ev-ink);
+  border: 1px solid var(--ev-line);
+  border-top: 4px solid var(--ev-cat-pro);
+  border-radius: 0 0 12px 12px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 1px 2px rgba(19, 37, 68, 0.06);
+  height: 100%;
+  box-sizing: border-box;
+}
+.ev-card--pro { border-top-color: var(--ev-cat-pro); }
+.ev-card--rec { border-top-color: var(--ev-cat-rec); }
+.ev-card--aca { border-top-color: var(--ev-cat-aca); }
+.ev-card--sim { border-top-color: var(--ev-cat-sim); }
+.ev-card--lab { border-top-color: var(--ev-cat-lab); }
+
+.ev-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.ev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 4px 10px;
+  border: 2px solid transparent;
+  overflow-wrap: anywhere;
+}
+.ev-badge__icon { font-size: 0.8em; line-height: 1; }
+
+/* Category badges: filled, white text, distinct hue and distinct shape icon */
+.ev-cat { color: #ffffff; }
+.ev-cat--pro { background: var(--ev-cat-pro); border-color: var(--ev-cat-pro); }
+.ev-cat--rec { background: var(--ev-cat-rec); border-color: var(--ev-cat-rec); }
+.ev-cat--aca { background: var(--ev-cat-aca); border-color: var(--ev-cat-aca); }
+.ev-cat--sim { background: var(--ev-cat-sim); border-color: var(--ev-cat-sim); }
+.ev-cat--lab { background: var(--ev-cat-lab); border-color: var(--ev-cat-lab); }
+
+/* Status badges: outline styles, so they never read as a category */
+.ev-status { background: #ffffff; color: #2f3b52; border-color: #8a96ab; }
+.ev-status--published { background: #e6f4ea; color: #145a2c; border-color: #2e7d46; }
+.ev-status--complete { background: #ffffff; color: #145a2c; border-color: #2e7d46; }
+/* DESIGNED: dashed amber outline, hollow circle icon. IMPLEMENTED: solid green fill, check icon. */
+.ev-status--designed { background: #fff8e6; color: #6b4300; border: 2px dashed #b07a00; }
+.ev-status--implemented { background: #145a2c; color: #ffffff; border-color: #145a2c; }
+.ev-status--progress { background: #ffffff; color: #1f4f8f; border: 2px dashed #3a6fb5; }
+.ev-status--draft { background: #f3f5f9; color: #3b4760; border-color: #8a96ab; }
+.ev-status--archive { background: #f3f5f9; color: #4d5a72; border-color: #c3cbd8; }
+
+.ev-card__id {
+  margin: 0 0 2px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ev-accent);
+}
+
+.ev-card__title {
+  margin: 0 0 12px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--ev-ink);
+  overflow-wrap: anywhere;
+}
+
+.ev-card__fields { margin: 0 0 14px; display: grid; gap: 10px; flex: 1 1 auto; align-content: start; }
+.ev-field { margin: 0; }
+.ev-field__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ev-muted);
+  margin: 0 0 2px;
+}
+.ev-field__value {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--ev-ink);
+  overflow-wrap: anywhere;
+}
+
+.ev-link { color: var(--ev-accent); font-weight: 600; text-underline-offset: 2px; }
+
+.ev-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--ev-line);
+  padding-top: 12px;
+  margin-top: auto;
+}
+.ev-card__foot-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ev-muted);
+}
+.ev-card__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: var(--ev-cat-pro);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.ev-card__cta:hover { background: var(--ev-accent); }
+.ev-card__unavailable {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #3b4760;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #c3cbd8;
+  background: #f3f5f9;
+}
+.ev-card__unavailable--progress { border-style: dashed; color: #1f4f8f; border-color: #3a6fb5; background: #ffffff; }
+
+.ev-card a:focus-visible,
+.ev-card__cta:focus-visible {
+  outline: 3px solid #f5b400;
+  outline-offset: 2px;
+}
+
+/* Grid helper for pages that list cards */
+.ev-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 420px) {
+  .ev-grid { grid-template-columns: minmax(0, 1fr); }
+  .ev-card { padding: 16px 14px 14px; }
+}
+
+/* Reconstructed artifacts: the three-line banner from canonical record section 7, on every card */
+.ev-card__banner {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border: 2px dashed var(--ev-cat-rec);
+  border-radius: 8px;
+  background: #e8f4f3;
+  color: #073f3c;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.ev-card__banner span { display: block; }
+.ev-card--rec { background-image: repeating-linear-gradient(135deg, rgba(11, 95, 90, 0.035) 0 10px, transparent 10px 20px); }
+

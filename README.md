@@ -1,28 +1,23 @@
-# andrerowe.com — personal site
+# andrerowe.com
 
-Static HTML + CSS with ~90 lines of dependency-free JS (scroll reveals, chapter scrollspy, the systems/design lens, and the voting demo). Everything degrades gracefully with JS off. v2 migrates hosting to AWS via Terraform; see Website_Rebuild_Guide.md.
+Static HTML and CSS, served by GitHub Pages from this repository (custom domain in `CNAME`). No build step and no framework.
 
-## Files
-- `index.html` — main page
-- `loql.html`, `truth-be-told.html` (UX case studies), `playground.html` (live voting demo), `site.js`
-- `bayou-alert.html`, `project-volta.html`, `grazioso-animal-rescue.html`, `travlr-getaways.html` — case-study pages (content migrated from the old portfolio, rebuilt in this design)
-- `styles.css` — all styling, shared by every page
-- `images/` — optimized webp project images (~440KB total)
-- `Andre_Rowe_Resume.pdf` — the hero button links to this exact filename. Replace it every time the docx master changes.
+## Pages
+- `index.html`: homepage (positioning, program-scope and personal metrics, featured case study, evidence, labs, validation, resumes, contact)
+- `experience.html`, `case-studies.html`, `evidence.html`, `projects.html`, `education.html`, `validation.html`, `resume.html`: the main navigation
+- `windows11-migration.html`: case study, Windows 11 migration program at NYU Langone Health (professional experience)
+- `bayou-alert.html`, `project-volta.html`, `grazioso-animal-rescue.html`, `travlr-getaways.html`, `loql.html`, `truth-be-told.html`: project pages
+- `playground.html`: in-browser demo of the Loql group voting concept
 
-## Deploy (GitHub Pages, ~10 minutes)
-1. Create a public repo (e.g. `andrerowe.com`) and push these files to `main`.
-2. Repo → Settings → Pages → Source: **Deploy from a branch** → `main` / root.
-3. Wait for the first build; confirm the `*.github.io` URL renders.
-4. Custom domain: enter your confirmed domain in the Pages settings (this creates a `CNAME` file in the repo — do this only after the domain question is settled).
-5. At your registrar: point the apex domain at GitHub Pages' A records and `www` at `dre007.github.io` via CNAME record (GitHub's Pages docs list the current IPs).
-6. Back in Pages settings: check **Enforce HTTPS** once the certificate provisions.
+## Assets
+- `portfolio.css`, `portfolio.js`, `evidence-card.css`, `evidence-card.js`: styles and scripts for the homepage, the main navigation pages and the Windows 11 case study. Evidence cards render from data inlined in each page; nothing is fetched.
+- `styles.css`, `site.js` (root): styles and scripts for the project pages and the playground
+- `images/`: project images (webp)
+- `Andre_Rowe_Resume_<Role>.pdf` (root): the six role-specific resume PDFs linked from the site
+- `Andre_Rowe_Resume.pdf`: the Endpoint Engineer resume at its older address, kept so existing links keep working
 
-## Before launch checklist
-- [ ] Resume PDF in repo root, current version
-- [ ] OpenClaw card link → the real repo URL once it's public (currently points at the GitHub profile)
-- [ ] Domain confirmed and consistent across site, resume header, LinkedIn About/Featured
-- [ ] Phone-free by design — email only on the public page
+## Labels
+Every case study, artifact and project carries one of five labels: Professional Experience, Reconstructed Professional Artifact, Academic Project, Simulated Professional Project or Hands-On Lab. Reconstructed artifacts use fictional data and are not original employer documents. Riverside Health is a fictional hospital used only for simulated projects and labs.
 
-## v2 (September)
-S3 + CloudFront + Route 53 + ACM, provisioned with Terraform, deployed by GitHub Actions. Architecture and rationale in Website_Rebuild_Guide.md. When it ships, update the footer line and add the bullet to the resume.
+## Deploy
+Commit to `main`; GitHub Pages publishes the repository root. Check https://andrerowe.com/windows11-migration.html and the resume downloads after each push.
