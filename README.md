@@ -12,6 +12,9 @@ Static HTML and CSS, served by GitHub Pages from this repository (custom domain 
 ## Assets
 - `portfolio.css`, `portfolio.js`, `evidence-card.css`, `evidence-card.js`: styles and scripts for the homepage, the main navigation pages and the Windows 11 case study. Evidence cards render from data inlined in each page; nothing is fetched.
 - `styles.css`, `site.js` (root): styles and scripts for the project pages and the playground
+- `fonts/`: self-hosted Newsreader (headings) and Instrument Sans (text), latin subset, with their OFL license. Both stylesheets load them; no third-party font requests
+- `favicon.svg`: the AR. monogram
+- `og-image.png`: 1200x630 link-preview image named in every page's Open Graph and Twitter tags
 - `images/`: project images (webp)
 - `Andre_Rowe_Resume_<Role>.pdf` (root): the six role-specific resume PDFs linked from the site
 - `Andre_Rowe_Resume.pdf`: the Endpoint Engineer resume at its older address, kept so existing links keep working
